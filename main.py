@@ -11,7 +11,7 @@ db = client.sample
 contacts = db.contacts
 
 # create a new Firefox session
-driver = webdriver.Chrome(executable_path=r'C:/Users/El-teezus/AppData/Local/ChromeDriver/chromedriver.exe')
+# driver = webdriver.Chrome(executable_path=r'C:/Users/{your_comp}/AppData/Local/ChromeDriver/chromedriver.exe')
 driver.implicitly_wait(30)
 driver.maximize_window()
 driver.get("https://www.fakepersongenerator.com/Index/generate")
@@ -50,7 +50,6 @@ def push_to_mongo(name, phone, city, street, lat_lng):
     }
     result = contacts.insert_one(contact)
     print('One post: {0}'.format(result.inserted_id))
-# 'city', 'Manchester, New Hampshire(NH), 03101'
 
 def split_area_info_state(area_string):
     state_string = re.split("\(([^)]+)\)", area_string)
